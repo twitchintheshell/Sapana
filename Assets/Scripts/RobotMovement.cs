@@ -84,6 +84,8 @@ public class RobotMovement : Singleton<RobotMovement>
         var original = transform.eulerAngles;
         float step = 0;
 
+        animator.SetInteger("Rotating", rotateSize);
+
         while (step < 1)
         {
             step += Time.deltaTime * rotationSpeed / rotateSize;
@@ -91,6 +93,8 @@ public class RobotMovement : Singleton<RobotMovement>
 
             yield return null;
         }
+
+        animator.SetInteger("Rotating", 0);
     }
 
     IEnumerator MoveForward()
